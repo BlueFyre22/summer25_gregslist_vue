@@ -19,7 +19,10 @@
             </RouterLink>
             <span>|</span>
             <!-- NOTE this should link to your houses page -->
-            <span>Houses</span>
+            <RouterLink :to="{ name: 'Houses' }">
+              <span>Houses</span>
+            </RouterLink>
+
             <span>|</span>
             <!-- NOTE this should link to your jobs page -->
             <span>Jobs</span>
