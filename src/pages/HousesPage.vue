@@ -1,7 +1,8 @@
 <script setup>
 import { AppState } from '@/AppState.js';
+import HouseFormModal from '@/components/HouseFormModal.vue';
 import HouseListing from '@/components/HouseListing.vue';
-import { Account } from '@/models/Account.js';
+
 import { housesService } from '@/services/HousesService.js';
 import { logger } from '@/utils/Logger.js';
 import { Pop } from '@/utils/Pop.js';
@@ -15,7 +16,7 @@ onMounted(() => {
   getHouses()
 })
 
-
+//43 minutes in for modals on gregslist vue lecture by Mick
 
 
 async function getHouses() {
@@ -40,8 +41,10 @@ async function getHouses() {
     <div class="col-12">
       <div class="d-flex justify-content-center align-items-center">
         <h1> Houses <span class="mdi mdi-home fs-1"></span></h1>
+
         <!-- v-if="account" says if this is true (meaing they are logged in) then show the button. -->
-        <button v-if="account" class="btn btn-outline-dark">List a House for Sale</button>
+        <button v-if="account" type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#houseFormModal">List a House for Sale</button>
+        
         <small v-else>Log in so you can list that house!</small>
       </div>
     </div>
@@ -54,7 +57,7 @@ async function getHouses() {
   </div>
 </div>
 </section>
-
+<HouseFormModal/>
 
 
 
